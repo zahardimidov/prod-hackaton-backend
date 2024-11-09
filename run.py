@@ -2,7 +2,7 @@ from fastapi import FastAPI, Response
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse
 
-from api import auth_router
+from api import auth_router, bill_router, group_router
 from config import PORT
 from database.admin import init_admin
 from database.session import engine, run_database
@@ -16,6 +16,9 @@ async def on_startup(app: FastAPI):
 
 app = FastAPI(lifespan=on_startup)
 app.include_router(auth_router)
+app.include_router(group_router)
+app.include_router(bill_router)
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
