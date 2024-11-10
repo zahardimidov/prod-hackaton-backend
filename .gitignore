@@ -1,0 +1,11 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+venv/
+database.db
+test.py
+*.png
+.idea
+draw.py
+.DS_Store
+.pytest_cache
+docker-compose.yml
